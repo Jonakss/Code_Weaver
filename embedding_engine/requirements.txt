@@ -1,0 +1,5 @@
+sentence-transformers
+chromadb
+tqdm
+markdown
+beautifulsoup4
