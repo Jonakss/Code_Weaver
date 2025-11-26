@@ -1,0 +1,46 @@
+# Entornos virtuales
+venv/
+*.venv
+env/
+ENV/
+ath_venv/
+local_install/
+
+# Archivos de caché y compilados
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.eggs/
+dist/
+build/
+*.so
+
+# Dependencias de Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de IDEs
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Archivos generados por Code_Weaver (una vez que ya no se necesiten)
+# Descomentar si se desea ignorarlos después del bootstrapping
+# .agent_rules/
+# docs/
+
+# Archivos de configuración local
+.env
+.env.*
+!.env.example
