@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================================================
-# Code_Weaver Bootstrap Script v2.0
+# Code_Weaver Bootstrap Script v2.1
 #
 # Este script inicializa un nuevo proyecto con una estructura de directorios
 # y archivos enriquecida para una colaboración efectiva con agentes de IA.
@@ -14,6 +14,12 @@ DOCS_DIR="docs"
 AI_AGENTS_DIR="$DOCS_DIR/ai_agents"
 TEMPLATES_DIR_INTERNAL="templates" # Directorio donde residen las plantillas del kit
 DOCS_TEMPLATES_DIR="$DOCS_DIR/templates" # Directorio de plantillas para el usuario
+
+# Nuevos directorios de documentación
+DOCS_CORE_DIR="$DOCS_DIR/core"
+DOCS_CONCEPTS_DIR="$DOCS_DIR/concepts"
+DOCS_COMPONENTS_DIR="$DOCS_DIR/components"
+DOCS_EXPERIMENTS_DIR="$DOCS_DIR/experiments"
 
 # --- Funciones ---
 
@@ -54,7 +60,7 @@ create_file_from_template() {
 
 # --- Script Principal ---
 
-echo "🚀 Iniciando bootstrapping de Code_Weaver (v2.0)..."
+echo "🚀 Iniciando bootstrapping de Code_Weaver (v2.1)..."
 
 # 1. Verificar que las plantillas existen
 if [ ! -d "$TEMPLATES_DIR_INTERNAL" ]; then
@@ -66,6 +72,10 @@ create_dir_if_not_exists "$AGENT_RULES_DIR"
 create_dir_if_not_exists "$DOCS_DIR"
 create_dir_if_not_exists "$AI_AGENTS_DIR"
 create_dir_if_not_exists "$DOCS_TEMPLATES_DIR"
+create_dir_if_not_exists "$DOCS_CORE_DIR"
+create_dir_if_not_exists "$DOCS_CONCEPTS_DIR"
+create_dir_if_not_exists "$DOCS_COMPONENTS_DIR"
+create_dir_if_not_exists "$DOCS_EXPERIMENTS_DIR"
 
 # 3. Crear archivos core desde las plantillas
 create_file_from_template "AGENT_CORE.md" "$AGENT_RULES_DIR/AGENT_CORE.md"

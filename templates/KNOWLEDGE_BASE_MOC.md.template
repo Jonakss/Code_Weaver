@@ -12,9 +12,8 @@ tags: [moc, knowledge_base, project_root]
 
 ## 🧭 Principios Fundamentales
 
-- [[(enlaza aquí tu manifiesto o visión del proyecto)]]
-- [[(enlaza aquí tus decisiones de arquitectura principales)]]
-- [[(enlaza aquí tu glosario de términos)]]
+- [[core/00_CORE_MOC|Visión y Core del Proyecto]]
+- [[concepts/00_CONCEPTS_MOC|Conceptos Clave]]
 
 ---
 
@@ -26,12 +25,20 @@ tags: [moc, knowledge_base, project_root]
 
 ## 🏗️ Componentes del Sistema
 
-- [[(crea un MOC para tus componentes principales aquí)]]
+- [[components/00_COMPONENTS_MOC|Arquitectura de Componentes]]
+
+---
+
+## 🔬 Experimentos y Aprendizaje
+
+- [[DEV_LOG|Log de Desarrollo de IA]]
+- [[experiments/00_EXPERIMENTS_MOC|Resultados de Experimentos]]
 
 ---
 
 ## 🚀 Despliegue y Operaciones
 
+- [[VERSIONING_GUIDE|Guía de Versionado Semántico]]
 - [[(enlaza aquí tus guías de despliegue o CI/CD)]]
 
 ---

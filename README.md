@@ -50,6 +50,14 @@ Este repositorio ya incluye la siguiente estructura generada:
 │   ├── ai_agents/
 │   │   ├── 00_AGENT_MOC.md      # MOC para listar y gestionar agentes de IA.
 │   │   └── AGENT_EXAMPLE.md     # Ejemplo de definición de un agente.
+│   ├── components/              # Documentación de componentes técnicos.
+│   │   └── 00_COMPONENTS_MOC.md # MOC de componentes.
+│   ├── concepts/                # Definiciones de conceptos clave del proyecto.
+│   │   └── 00_CONCEPTS_MOC.md   # MOC de conceptos.
+│   ├── core/                    # Visión, arquitectura y principios fundamentales.
+│   │   └── 00_CORE_MOC.md       # MOC del core.
+│   ├── experiments/             # Registro de experimentos y sus resultados.
+│   │   └── 00_EXPERIMENTS_MOC.md# MOC de experimentos.
 │   └── templates/
 │       └── COMPONENT_TEMPLATE.md  # Plantilla para documentar nuevos componentes.
 ├── templates/                  # Plantillas internas usadas por bootstrap.sh
@@ -62,6 +70,10 @@ Este repositorio ya incluye la siguiente estructura generada:
 *   `.agent_rules/AGENT_CORE.md`: **El Corazón del Sistema.** El archivo que tu agente de IA principal debe "leer" al inicio de cada sesión. Contiene las directivas que guían sus acciones.
 *   `docs/DEV_LOG.md`: Un diario donde todos los colaboradores (humanos y IA) registran el **"porqué"** detrás de los cambios.
 *   `docs/VERSIONING_GUIDE.md`: Instrucciones para que los commits activen el versionado automático.
+*   `docs/core/`: Guarda la visión, misión y arquitectura principal del proyecto.
+*   `docs/concepts/`: Define los conceptos fundamentales y la terminología.
+*   `docs/components/`: Detalla cada componente técnico del sistema.
+*   `docs/experiments/`: Registra la metodología y resultados de los experimentos.
 
 ## 🎨 Personalización
 
