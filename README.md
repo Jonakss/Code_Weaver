@@ -13,13 +13,25 @@ Este repositorio es un **ejemplo vivo** de la estructura final. Puedes clonarlo 
 3.  **Simbiosis Código-Conocimiento:** Un cambio en el código se refleja en la base de conocimientos, y las decisiones documentadas guían la implementación.
 4.  **Obsidian & Markdown:** La base de conocimientos está diseñada como un [Vault de Obsidian](https://obsidian.md/), permitiendo la navegación del conocimiento a través de enlaces (`[[wikilinks]]`).
 
-## 🚀 Cómo Empezar
+---
 
-Este repositorio ya contiene la estructura de directorios y archivos base.
+## 🧠 Motor de Búsqueda Semántica (`embedding_engine`)
 
-1.  Usa este repositorio como plantilla (**"Use this template"** en GitHub) para crear tu nuevo proyecto.
-2.  Clona tu nuevo repositorio.
-3.  Comienza a personalizar los archivos en `.agent_rules/` y `docs/`.
+Para potenciar aún más la Base de Conocimientos, este proyecto incluye un **Motor de Búsqueda Semántica** local. Este módulo transforma la documentación Markdown en una base de datos vectorial, permitiendo realizar búsquedas basadas en el *significado* de las preguntas, no solo en palabras clave.
+
+-   **Beneficios:** Los agentes de IA (como Gemini CLI, Google Antigravity, Jules y Cursor) y los desarrolladores pueden obtener respuestas contextuales y precisas directamente de la documentación del proyecto, con citas a las fuentes originales.
+-   **Implementación:** Utiliza `sentence-transformers` para la generación de embeddings y `ChromaDB` como base de datos vectorial, todo ejecutado localmente.
+-   **Uso:** Puedes encontrar la documentación completa de su arquitectura e integración en `embedding_engine/EMBEDDING_INTEGRATION.md`.
+
+---
+
+## 🚀 Script de Release (`scripts/release.sh`)
+
+Para mantener un versionado consistente y automatizar el proceso de creación de nuevos lanzamientos, se incluye el script `scripts/release.sh`.
+
+-   **Funcionalidad:** Este script te guía a través del proceso de seleccionar un tipo de incremento de versión (major, minor, patch), crea un commit de release con el formato adecuado para tu CI/CD y genera un tag de Git.
+-   **Uso:** Ejecuta `./scripts/release.sh` y sigue las instrucciones. Asegúrate de que tu directorio de trabajo esté limpio antes de usarlo.
+-   **Versionado Automático (CI/CD):** Para entender cómo este script interactúa con un sistema de CI/CD para el versionado automático, consulta `docs/VERSIONING_GUIDE.md`.
 
 ---
 
@@ -57,7 +69,10 @@ Este repositorio ya incluye la siguiente estructura generada:
 │   ├── experiments/             # Registro de experimentos y sus resultados.
 │   └── templates/
 │       └── COMPONENT_TEMPLATE.md  # Plantilla para documentar nuevos componentes.
-├── templates/                  # Plantillas internas usadas por bootstrap.sh
+├── embedding_engine/         # Motor de búsqueda semántica local para la documentación.
+├── scripts/                  # Scripts de utilidad del proyecto.
+│   └── release.sh            # Script para crear y versionar nuevos lanzamientos.
+└── templates/                  # Plantillas internas usadas por bootstrap.sh
 └── bootstrap.sh                # Script para (re)generar la estructura.
 ```
 
