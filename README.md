@@ -15,25 +15,26 @@ Este repositorio es un **ejemplo vivo** de la estructura final. Puedes clonarlo 
 
 ## 🚀 Cómo Empezar
 
-Este repositorio ya contiene la estructura de directorios y archivos base. Puedes empezar de dos maneras:
+Este repositorio ya contiene la estructura de directorios y archivos base.
 
-**Opción 1: Usar como Plantilla (Recomendado)**
-
-1.  Haz clic en el botón **"Use this template"** en la página de GitHub para crear un nuevo repositorio basado en este.
+1.  Usa este repositorio como plantilla (**"Use this template"** en GitHub) para crear tu nuevo proyecto.
 2.  Clona tu nuevo repositorio.
-3.  Comienza a personalizar los archivos en `.agent_rules/` y `docs/` para tu proyecto.
+3.  Comienza a personalizar los archivos en `.agent_rules/` y `docs/`.
 
-**Opción 2: Regenerar la Estructura (Uso Avanzado)**
+---
 
-Si deseas regenerar la estructura base o utilizar el generador en un proyecto existente, puedes usar el script de bootstrapping.
+## ⚠️ Puntos Débiles y Cómo Mitigarlos
 
-```bash
-# 1. Asegúrate de que el script sea ejecutable
-chmod +x bootstrap.sh
+Este sistema es poderoso, pero no es mágico. Su éxito depende de la disciplina y la conciencia de sus limitaciones.
 
-# 2. Ejecuta el script para generar (o sobreescribir si ya existen) los archivos base
-./bootstrap.sh
-```
+| Punto Débil | Descripción | Mitigación |
+| :--- | :--- | :--- |
+| **Disciplina Requerida** | El sistema falla si el desarrollador o la IA no siguen la regla de mantener sincronizados el código y los `docs`. La IA puede operar con información desactualizada si el humano no documenta, y el humano puede perder contexto si la IA no registra sus decisiones. | **Hábito y Consistencia.** Trata la actualización de `docs/` como tratas a los tests: una parte no negociable del `Definition of Done`. Usa el `docs/00_Inbox` para capturar ideas rápidamente y reducir la fricción. |
+| **Riesgo de Ruido** | Existe la tentación de documentar en exceso, creando una base de conocimientos desordenada y difícil de navegar. El objetivo es tener un "cerebro" curado, no un vertedero de información. | **Rol de "Jardinero Digital".** El desarrollador debe actuar como el curador principal. Revisa periódicamente el `Inbox` y refactoriza las notas para asegurar que sean claras, concisas y estén bien enlazadas. La calidad es más importante que la cantidad. |
+| **Curva de Aprendizaje** | Requiere un cambio de mentalidad. El tiempo invertido en documentar una decisión (el "porqué") puede parecer un coste inicial, pero ahorra horas de re-contextualización e ingeniería inversa más adelante. | **Empezar Pequeño.** Comienza documentando solo las decisiones de arquitectura más críticas. A medida que veas los beneficios (ej. la IA entendiendo un concepto complejo sin tu ayuda), el hábito se reforzará. |
+| **Dependencia del Agente** | La efectividad del sistema depende de la calidad del agente de IA. Un agente menos capaz podría tener dificultades para seguir las reglas, consultar archivos o generar documentación útil. | **Reglas Claras y Simples.** El archivo `.agent_rules/AGENT_CORE.md` debe ser lo más claro y directo posible. Audita periódicamente el trabajo de la IA (ej. revisando sus commits y las notas que genera) para asegurar que se está adhiriendo al pacto. |
+
+---
 
 ## 📂 Estructura Incluida
 
@@ -44,42 +45,21 @@ Este repositorio ya incluye la siguiente estructura generada:
 ├── .agent_rules/
 │   └── AGENT_CORE.md         # Mandamientos y reglas para tu agente de IA.
 ├── docs/
+│   ├── 00_Inbox/                # Bandeja de entrada para ideas y notas rápidas.
+│   │   └── README.md
 │   ├── 00_KNOWLEDGE_BASE_MOC.md # MOC principal de la Knowledge Base.
 │   ├── DEV_LOG.md               # Log de decisiones de desarrollo.
 │   ├── VERSIONING_GUIDE.md      # Guía para el versionado semántico automático.
-│   ├── ai_agents/
-│   │   ├── 00_AGENT_MOC.md      # MOC para listar y gestionar agentes de IA.
-│   │   └── AGENT_EXAMPLE.md     # Ejemplo de definición de un agente.
+│   ├── ai_agents/               # Gestión y definición de los agentes de IA.
 │   ├── components/              # Documentación de componentes técnicos.
-│   │   └── 00_COMPONENTS_MOC.md # MOC de componentes.
 │   ├── concepts/                # Definiciones de conceptos clave del proyecto.
-│   │   └── 00_CONCEPTS_MOC.md   # MOC de conceptos.
 │   ├── core/                    # Visión, arquitectura y principios fundamentales.
-│   │   └── 00_CORE_MOC.md       # MOC del core.
 │   ├── experiments/             # Registro de experimentos y sus resultados.
-│   │   └── 00_EXPERIMENTS_MOC.md# MOC de experimentos.
 │   └── templates/
 │       └── COMPONENT_TEMPLATE.md  # Plantilla para documentar nuevos componentes.
 ├── templates/                  # Plantillas internas usadas por bootstrap.sh
-│   └── ...
 └── bootstrap.sh                # Script para (re)generar la estructura.
 ```
-
-### Descripción de Archivos Clave
-
-*   `.agent_rules/AGENT_CORE.md`: **El Corazón del Sistema.** El archivo que tu agente de IA principal debe "leer" al inicio de cada sesión. Contiene las directivas que guían sus acciones.
-*   `docs/DEV_LOG.md`: Un diario donde todos los colaboradores (humanos y IA) registran el **"porqué"** detrás de los cambios.
-*   `docs/VERSIONING_GUIDE.md`: Instrucciones para que los commits activen el versionado automático.
-*   `docs/core/`: Guarda la visión, misión y arquitectura principal del proyecto.
-*   `docs/concepts/`: Define los conceptos fundamentales y la terminología.
-*   `docs/components/`: Detalla cada componente técnico del sistema.
-*   `docs/experiments/`: Registra la metodología y resultados de los experimentos.
-
-## 🎨 Personalización
-
-1.  **Edita `.agent_rules/AGENT_CORE.md`**: Adapta las reglas a tu stack tecnológico y convenciones.
-2.  **Limpia y Adapta `docs/`**: Modifica el `DEV_LOG.md`, el `00_KNOWLEDGE_BASE_MOC.md` y los demás archivos para que se ajusten a la visión de tu nuevo proyecto.
-3.  **Enseña a tu Agente:** En tu primera interacción con tu IA, indícale que su "fuente de verdad" y reglas residen en `.agent_rules/AGENT_CORE.md`.
 
 ---
 *Hecho con la colaboración de IA, para una mejor colaboración con la IA.*

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================================================
-# Code_Weaver Bootstrap Script v2.2
+# Code_Weaver Bootstrap Script v2.3
 #
 # Este script inicializa un nuevo proyecto con una estructura de directorios
 # y archivos enriquecida para una colaboración efectiva con agentes de IA.
@@ -12,10 +12,11 @@
 AGENT_RULES_DIR=".agent_rules"
 DOCS_DIR="docs"
 AI_AGENTS_DIR="$DOCS_DIR/ai_agents"
-TEMPLATES_DIR_INTERNAL="templates" # Directorio donde residen las plantillas del kit
-DOCS_TEMPLATES_DIR="$DOCS_DIR/templates" # Directorio de plantillas para el usuario
+TEMPLATES_DIR_INTERNAL="templates"
+DOCS_TEMPLATES_DIR="$DOCS_DIR/templates"
 
 # Directorios de documentación
+DOCS_INBOX_DIR="$DOCS_DIR/00_Inbox"
 DOCS_CORE_DIR="$DOCS_DIR/core"
 DOCS_CONCEPTS_DIR="$DOCS_DIR/concepts"
 DOCS_COMPONENTS_DIR="$DOCS_DIR/components"
@@ -60,16 +61,17 @@ create_file_from_template() {
 
 # --- Script Principal ---
 
-echo "🚀 Iniciando bootstrapping de Code_Weaver (v2.2)..."
+echo "🚀 Iniciando bootstrapping de Code_Weaver (v2.3)..."
 
 # 1. Verificar que las plantillas existen
 if [ ! -d "$TEMPLATES_DIR_INTERNAL" ]; then
-    error "El directorio '$TEMPLATES_DIR_INTERNAL/' no fue encontrado. Asegúrate de que el script se ejecuta desde la raíz de Code_Weaver."
+    error "El directorio '$TEMPLATES_DIR_INTERNAL/' no fue encontrado."
 fi
 
 # 2. Crear directorios
 create_dir_if_not_exists "$AGENT_RULES_DIR"
 create_dir_if_not_exists "$DOCS_DIR"
+create_dir_if_not_exists "$DOCS_INBOX_DIR"
 create_dir_if_not_exists "$AI_AGENTS_DIR"
 create_dir_if_not_exists "$DOCS_TEMPLATES_DIR"
 create_dir_if_not_exists "$DOCS_CORE_DIR"
@@ -80,6 +82,7 @@ create_dir_if_not_exists "$DOCS_EXPERIMENTS_DIR"
 # 3. Crear archivos core desde las plantillas
 create_file_from_template "AGENT_CORE.md" "$AGENT_RULES_DIR/AGENT_CORE.md"
 create_file_from_template "KNOWLEDGE_BASE_MOC.md" "$DOCS_DIR/00_KNOWLEDGE_BASE_MOC.md"
+create_file_from_template "INBOX_README.md" "$DOCS_INBOX_DIR/README.md"
 create_file_from_template "VERSIONING_GUIDE.md" "$DOCS_DIR/VERSIONING_GUIDE.md"
 create_file_from_template "DEV_LOG.md" "$DOCS_DIR/DEV_LOG.md"
 
@@ -100,8 +103,8 @@ create_file_from_template "COMPONENT_TEMPLATE.md" "$DOCS_TEMPLATES_DIR/COMPONENT
 
 echo "🎉 ¡Bootstrapping completado! Tu proyecto está listo para tejer código y conocimiento."
 echo "👉 Próximos pasos recomendados:"
-echo "   1. Lee el 'README.md' para entender la filosofía."
+echo "   1. Lee el 'README.md' para entender la filosofía y los puntos débiles."
 echo "   2. Personaliza '.agent_rules/AGENT_CORE.md' con las reglas de tu IA."
-echo "   3. Empieza a poblar 'docs/' usando las plantillas y guías generadas."
+echo "   3. Empieza a usar 'docs/00_Inbox/' para capturar tus ideas."
 
 exit 0
