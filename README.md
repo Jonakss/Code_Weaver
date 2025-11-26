@@ -1,58 +1,73 @@
 # 🧶 Code_Weaver: Un Framework para Proyectos Impulsados por IA
 
-**Code_Weaver** es una plantilla de repositorio y una metodología diseñada para construir proyectos de software donde los agentes de IA no son solo herramientas, sino colaboradores de primera clase. La filosofía central es que para que la IA actúe de manera efectiva, el código (`src/`) y el conocimiento (`docs/`) deben estar intrínsecamente entrelazados, como los hilos de un tapiz.
+**Code_Weaver** es un repositorio de plantilla y una metodología para construir software donde los agentes de IA son colaboradores de primera clase. Su filosofía es que para que la IA actúe eficazmente, el código (`src/`) y el conocimiento (`docs/`) deben estar intrínsecamente entrelazados.
 
-Este framework transforma un repositorio estándar en un **"Ágora Digital"** o una **"Memoria Extendida"** para el proyecto. Es el lugar donde los desarrolladores humanos y los agentes de IA se encuentran, se comunican y colaboran, guiados por una base de conocimientos compartida y explícita.
+Este repositorio es un **ejemplo vivo** de la estructura final. Puedes clonarlo y empezar a trabajar directamente.
 
 ---
 
 ## ✨ Filosofía
 
-1.  **El Conocimiento como Ciudadano de Primera Clase:** La documentación (`docs/`) no es un producto secundario del código; es un componente activo y esencial. Se trata como una **Base de Conocimientos (Knowledge Base)** que la IA utiliza para entender el contexto, las decisiones de diseño y los objetivos del proyecto.
-2.  **Reglas Explícitas:** Los agentes de IA operan bajo un conjunto de "mandamientos" o reglas (`.agent_rules/AGENT_CORE.md`) que definen su comportamiento, estilo de codificación y responsabilidades. Esto asegura consistencia y alineación con los estándares del proyecto.
-3.  **Simbiosis Código-Conocimiento:** Un cambio en el código debe reflejarse en la base de conocimientos, y las decisiones documentadas en la base de conocimientos deben guiar la implementación del código. Son dos caras de la misma moneda.
-4.  **Obsidian & Markdown:** La base de conocimientos está diseñada para ser un [Vault de Obsidian](https://obsidian.md/), permitiendo la navegación y el descubrimiento de conocimiento a través de una red de enlaces (`[[wikilinks]]`).
+1.  **Conocimiento como Ciudadano de Primera Clase:** La documentación (`docs/`) es una **Base de Conocimientos (Knowledge Base)** activa que la IA utiliza para entender el contexto, las decisiones y los objetivos del proyecto.
+2.  **Reglas Explícitas:** Los agentes de IA operan bajo "mandamientos" en `.agent_rules/AGENT_CORE.md`, asegurando consistencia y alineación con los estándares del proyecto.
+3.  **Simbiosis Código-Conocimiento:** Un cambio en el código se refleja en la base de conocimientos, y las decisiones documentadas guían la implementación.
+4.  **Obsidian & Markdown:** La base de conocimientos está diseñada como un [Vault de Obsidian](https://obsidian.md/), permitiendo la navegación del conocimiento a través de enlaces (`[[wikilinks]]`).
 
 ## 🚀 Cómo Empezar
 
-Para inicializar un nuevo proyecto utilizando la metodología `Code_Weaver`, simplemente copia el contenido de este repositorio en la raíz de tu nuevo proyecto y ejecuta el script de bootstrapping.
+Este repositorio ya contiene la estructura de directorios y archivos base. Puedes empezar de dos maneras:
+
+**Opción 1: Usar como Plantilla (Recomendado)**
+
+1.  Haz clic en el botón **"Use this template"** en la página de GitHub para crear un nuevo repositorio basado en este.
+2.  Clona tu nuevo repositorio.
+3.  Comienza a personalizar los archivos en `.agent_rules/` y `docs/` para tu proyecto.
+
+**Opción 2: Regenerar la Estructura (Uso Avanzado)**
+
+Si deseas regenerar la estructura base o utilizar el generador en un proyecto existente, puedes usar el script de bootstrapping.
 
 ```bash
 # 1. Asegúrate de que el script sea ejecutable
 chmod +x bootstrap.sh
 
-# 2. Ejecuta el script para generar la estructura de la base de conocimientos
+# 2. Ejecuta el script para generar (o sobreescribir si ya existen) los archivos base
 ./bootstrap.sh
-
-# 3. ¡Listo! Revisa los archivos generados y comienza a personalizarlos.
 ```
 
-## 📂 Estructura Generada
+## 📂 Estructura Incluida
 
-El script `bootstrap.sh` creará la siguiente estructura en tu proyecto:
+Este repositorio ya incluye la siguiente estructura generada:
 
 ```
 .
 ├── .agent_rules/
-│   └── AGENT_CORE.md         # Mandamientos y reglas fundamentales para tu agente de IA.
-└── docs/
-    ├── 00_KNOWLEDGE_BASE_MOC.md  # Map of Content (MOC) principal de la Knowledge Base.
-    └── ai_agents/
-        ├── 00_AGENT_MOC.md       # MOC para listar y gestionar todos los agentes de IA.
-        └── AGENT_EXAMPLE.md      # Un ejemplo de cómo definir un agente específico.
+│   └── AGENT_CORE.md         # Mandamientos y reglas para tu agente de IA.
+├── docs/
+│   ├── 00_KNOWLEDGE_BASE_MOC.md # MOC principal de la Knowledge Base.
+│   ├── DEV_LOG.md               # Log de decisiones de desarrollo.
+│   ├── VERSIONING_GUIDE.md      # Guía para el versionado semántico automático.
+│   ├── ai_agents/
+│   │   ├── 00_AGENT_MOC.md      # MOC para listar y gestionar agentes de IA.
+│   │   └── AGENT_EXAMPLE.md     # Ejemplo de definición de un agente.
+│   └── templates/
+│       └── COMPONENT_TEMPLATE.md  # Plantilla para documentar nuevos componentes.
+├── templates/                  # Plantillas internas usadas por bootstrap.sh
+│   └── ...
+└── bootstrap.sh                # Script para (re)generar la estructura.
 ```
 
 ### Descripción de Archivos Clave
 
-*   `.agent_rules/AGENT_CORE.md`: **El Corazón del Sistema.** Este es el archivo que tu agente de IA principal debe "leer" al inicio de cada sesión. Contiene las reglas de alto nivel, los mandamientos y las directivas que guían todas sus acciones. Debes personalizarlo para definir el "carácter" de tu colaborador de IA.
-*   `docs/00_KNOWLEDGE_BASE_MOC.md`: La página de inicio de tu base de conocimientos. Desde aquí, enlazarás a conceptos, componentes, decisiones de arquitectura y más.
-*   `docs/ai_agents/00_AGENT_MOC.md`: Un directorio central para todos los agentes que trabajan en tu proyecto. Si usas múltiples IAs (como Gemini, Claude, Copilot, etc.), puedes definir el rol y las responsabilidades de cada uno aquí.
+*   `.agent_rules/AGENT_CORE.md`: **El Corazón del Sistema.** El archivo que tu agente de IA principal debe "leer" al inicio de cada sesión. Contiene las directivas que guían sus acciones.
+*   `docs/DEV_LOG.md`: Un diario donde todos los colaboradores (humanos y IA) registran el **"porqué"** detrás de los cambios.
+*   `docs/VERSIONING_GUIDE.md`: Instrucciones para que los commits activen el versionado automático.
 
 ## 🎨 Personalización
 
-1.  **Edita `.agent_rules/AGENT_CORE.md`**: Este es el paso más importante. Adapta las reglas a tu stack tecnológico, tus convenciones de codificación y la filosofía de tu proyecto.
-2.  **Comienza a Poblar `docs/`**: Crea notas para los componentes principales de tu aplicación, las decisiones de arquitectura y los conceptos clave.
-3.  **Enseña a tu Agente:** En tu primera interacción con tu agente de IA, indícale que su "fuente de verdad" y sus reglas principales residen en el archivo `.agent_rules/AGENT_CORE.md`.
+1.  **Edita `.agent_rules/AGENT_CORE.md`**: Adapta las reglas a tu stack tecnológico y convenciones.
+2.  **Limpia y Adapta `docs/`**: Modifica el `DEV_LOG.md`, el `00_KNOWLEDGE_BASE_MOC.md` y los demás archivos para que se ajusten a la visión de tu nuevo proyecto.
+3.  **Enseña a tu Agente:** En tu primera interacción con tu IA, indícale que su "fuente de verdad" y reglas residen en `.agent_rules/AGENT_CORE.md`.
 
 ---
 *Hecho con la colaboración de IA, para una mejor colaboración con la IA.*
