@@ -28,7 +28,8 @@ Este documento es el **Map of Content (MOC)** para todos los agentes de IA que o
 
 | Agente | Archivo de Definición | Rol Principal |
 | :--- | :--- | :--- |
-| 🤖 **Agente Principal (Ejemplo)** | [[AGENT_EXAMPLE]] | Desarrollo interactivo en terminal |
-| | | |
+| 🤖 **Gemini CLI** | [[AGENT_GEMINI_CLI]] | Desarrollo interactivo en terminal |
+| 👁️ **Cursor** | [[AGENT_CURSOR]] | Asistente de IA en el IDE |
+| ✍️ **Claude** | [[AGENT_CLAUDE]] | Análisis, revisión y documentación |
 
 *(Esta tabla debe ser actualizada por cualquier agente al que se le notifique de un nuevo colega o de su propia incorporación).*

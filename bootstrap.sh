@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================================================
-# Code_Weaver Bootstrap Script v2.1
+# Code_Weaver Bootstrap Script v2.2
 #
 # Este script inicializa un nuevo proyecto con una estructura de directorios
 # y archivos enriquecida para una colaboración efectiva con agentes de IA.
@@ -15,7 +15,7 @@ AI_AGENTS_DIR="$DOCS_DIR/ai_agents"
 TEMPLATES_DIR_INTERNAL="templates" # Directorio donde residen las plantillas del kit
 DOCS_TEMPLATES_DIR="$DOCS_DIR/templates" # Directorio de plantillas para el usuario
 
-# Nuevos directorios de documentación
+# Directorios de documentación
 DOCS_CORE_DIR="$DOCS_DIR/core"
 DOCS_CONCEPTS_DIR="$DOCS_DIR/concepts"
 DOCS_COMPONENTS_DIR="$DOCS_DIR/components"
@@ -60,7 +60,7 @@ create_file_from_template() {
 
 # --- Script Principal ---
 
-echo "🚀 Iniciando bootstrapping de Code_Weaver (v2.1)..."
+echo "🚀 Iniciando bootstrapping de Code_Weaver (v2.2)..."
 
 # 1. Verificar que las plantillas existen
 if [ ! -d "$TEMPLATES_DIR_INTERNAL" ]; then
@@ -83,11 +83,19 @@ create_file_from_template "KNOWLEDGE_BASE_MOC.md" "$DOCS_DIR/00_KNOWLEDGE_BASE_M
 create_file_from_template "VERSIONING_GUIDE.md" "$DOCS_DIR/VERSIONING_GUIDE.md"
 create_file_from_template "DEV_LOG.md" "$DOCS_DIR/DEV_LOG.md"
 
-# 4. Crear archivos de gestión de agentes
-create_file_from_template "AGENT_MOC.md" "$AI_AGENTS_DIR/00_AGENT_MOC.md"
-create_file_from_template "AGENT_EXAMPLE.md" "$AI_AGENTS_DIR/AGENT_EXAMPLE.md"
+# 4. Crear MOCs para las secciones de docs
+create_file_from_template "CORE_MOC.md" "$DOCS_CORE_DIR/00_CORE_MOC.md"
+create_file_from_template "CONCEPTS_MOC.md" "$DOCS_CONCEPTS_DIR/00_CONCEPTS_MOC.md"
+create_file_from_template "COMPONENTS_MOC.md" "$DOCS_COMPONENTS_DIR/00_COMPONENTS_MOC.md"
+create_file_from_template "EXPERIMENTS_MOC.md" "$DOCS_EXPERIMENTS_DIR/00_EXPERIMENTS_MOC.md"
 
-# 5. Crear plantillas para el usuario
+# 5. Crear archivos de gestión de agentes y ejemplos
+create_file_from_template "AGENT_MOC.md" "$AI_AGENTS_DIR/00_AGENT_MOC.md"
+create_file_from_template "AGENT_GEMINI_CLI.md" "$AI_AGENTS_DIR/AGENT_GEMINI_CLI.md"
+create_file_from_template "AGENT_CURSOR.md" "$AI_AGENTS_DIR/AGENT_CURSOR.md"
+create_file_from_template "AGENT_CLAUDE.md" "$AI_AGENTS_DIR/AGENT_CLAUDE.md"
+
+# 6. Crear plantillas para el usuario
 create_file_from_template "COMPONENT_TEMPLATE.md" "$DOCS_TEMPLATES_DIR/COMPONENT_TEMPLATE.md"
 
 echo "🎉 ¡Bootstrapping completado! Tu proyecto está listo para tejer código y conocimiento."
